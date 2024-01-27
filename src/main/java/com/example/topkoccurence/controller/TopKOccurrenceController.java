@@ -4,24 +4,15 @@ import com.example.topkoccurence.dto.WordWrapper;
 import com.example.topkoccurence.endpoint.TopKOccurrenceEndpoint;
 import com.example.topkoccurence.service.RedisService;
 import com.example.topkoccurence.service.TopKOccurrenceService;
-import io.lettuce.core.support.caching.RedisCache;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cache.Cache;
-import org.springframework.cache.CacheManager;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StreamTokenizer;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 @RestController
