@@ -43,7 +43,7 @@ public class TopKOccurrenceController implements TopKOccurrenceEndpoint {
             String hash = DigestUtils.md5Hex(textFile.getInputStream());
             String redisKey = hash + "_" + wordLimit;
             if (redisService.getFromRedis(redisKey) == null) {
-                wordWrapper = countTokenAndWrap(textFile.getInputStream());
+                wordWrapper = topKOccurrenceService.countTokenAndWrap(textFile.getInputStream());
                 redisService.saveToRedis(redisKey, wordWrapper);
             } else {
                 wordWrapper = (WordWrapper) redisService.getFromRedis(redisKey);
@@ -55,22 +55,4 @@ public class TopKOccurrenceController implements TopKOccurrenceEndpoint {
         return topKOccurrenceService.calculateWordOccurrence(wordLimit, wordWrapper);
     }
 
-    private WordWrapper countTokenAndWrap(InputStream stream) throws IOException {
-        Reader fileReader = new InputStreamReader(stream);
-        Map<String, Double> tokenMap = new LinkedHashMap<>();
-        int wordCount = 0;
-        StreamTokenizer streamTokenizer = new StreamTokenizer(fileReader);
-        int currentToken = streamTokenizer.nextToken();
-        while (currentToken != StreamTokenizer.TT_EOF) {
-            if (streamTokenizer.ttype == StreamTokenizer.TT_WORD) {
-                tokenMap.put(streamTokenizer.sval, tokenMap.getOrDefault(streamTokenizer.sval, .0) + 1);
-            }
-            currentToken = streamTokenizer.nextToken();
-            wordCount += 1;
-        }
-        return WordWrapper.builder()
-                .wordCheck(tokenMap)
-                .wordCount(wordCount)
-                .build();
-    }
 }

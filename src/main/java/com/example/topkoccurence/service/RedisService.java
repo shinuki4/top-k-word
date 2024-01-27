@@ -12,10 +12,20 @@ public class RedisService {
         this.redisTemplate = redisTemplate;
     }
 
+    /**
+     *
+     * @param key to store in redis
+     * @param value object to store in redis
+     */
     public void saveToRedis(String key, Object value) {
         this.redisTemplate.opsForValue().set(key, value);
     }
 
+    /**
+     *
+     * @param key to search redis
+     * @return the value attach to the key
+     */
     public Object getFromRedis(String key) {
         return this.redisTemplate.opsForValue().get(key);
     }

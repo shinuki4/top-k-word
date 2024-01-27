@@ -18,6 +18,7 @@ bin/
 !**/src/test/**/bin/
 
 ### IntelliJ IDEA ###
+top-k-occurrence/.idea
 .idea
 *.iws
 *.iml

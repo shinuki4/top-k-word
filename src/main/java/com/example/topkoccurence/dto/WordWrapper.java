@@ -10,7 +10,8 @@ import java.util.Map;
 @Data
 @Builder
 public class WordWrapper implements Serializable {
-    private Map<String, Double> wordCheck;
+    @Builder.Default
+    private Map<String, Double> wordCheck = Map.of();
     private Integer wordCount;
 
 }
