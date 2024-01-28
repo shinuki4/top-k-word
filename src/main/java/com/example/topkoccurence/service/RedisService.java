@@ -12,8 +12,7 @@ public class RedisService {
     }
 
     /**
-     *
-     * @param key to store in redis
+     * @param key   to store in redis
      * @param value object to store in redis
      */
     public void saveToRedis(String key, Object value) {
@@ -21,7 +20,6 @@ public class RedisService {
     }
 
     /**
-     *
      * @param key to search redis
      * @return the value attach to the key
      */

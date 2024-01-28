@@ -18,11 +18,12 @@ import java.util.stream.Collectors;
 
 @Service
 public class TopKOccurrenceService {
-    
+
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /**
-     *  Read a string and tokenise the content of it
+     * Read a string and tokenise the content of it
+     *
      * @param stream
      * @return A wrapper object containing the map of all word in the stream and their count  and the number of all token in stream
      * @throws IOException in case the stream can't be read
@@ -47,9 +48,8 @@ public class TopKOccurrenceService {
     }
 
     /**
-     *
      * @param wordLimit limmit the number of result in return
-     * @param tokenMap the token to which need to be calulated the frequency and to sort
+     * @param tokenMap  the token to which need to be calulated the frequency and to sort
      * @return List word and their frequency in desc order
      */
     public Map<String, Double> calculateWordOccurrence(Integer wordLimit, WordWrapper tokenMap) {
