@@ -31,8 +31,7 @@ public class TopKOccurrenceController implements TopKOccurrenceEndpoint {
     public Map<String, Double> generateWordOccurrence(Integer wordLimit, MultipartFile textFile) {
         WordWrapper wordWrapper;
         try {
-            String hash = DigestUtils.md5Hex(textFile.getInputStream());
-            String redisKey = hash + "_" + wordLimit;
+            String redisKey = DigestUtils.md5Hex(textFile.getInputStream());
             if (redisService.getFromRedis(redisKey) == null) {
                 wordWrapper = topKOccurrenceService.countTokenAndWrap(textFile.getInputStream());
                 redisService.saveToRedis(redisKey, wordWrapper);
