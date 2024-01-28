@@ -30,6 +30,7 @@ public class TopKOccurrenceController implements TopKOccurrenceEndpoint {
     public Map<String, Double> generateWordOccurrence(Integer wordLimit, MultipartFile textFile) throws IOException {
         WordWrapper wordWrapper;
         if (textFile == null) {
+            logger.info("file not found");
             return Map.of();
         }
         String redisKey = DigestUtils.md5Hex(textFile.getInputStream());
