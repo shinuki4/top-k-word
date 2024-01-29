@@ -11,17 +11,22 @@ Backend Requirements:
 - The API should return the K most frequent words and their frequency in descending order.
 - The API should have tests to ensure its functionality.
 
-## Installation
+## Pre requisite
 
 After cloning the project don't forget to:
-- Check out the Framework requirements: https://spring.io/projects/spring-boot
-- - Used version is the 3.2.2 
-- App need Redis running to be able to cache with default port 
-- Once the app is start:
--  - port: 8777
+- Check out the Framework requirements:
+  - https://spring.io/projects/spring-boot
+  - Used version is the 3.2.2 
+- App need Redis server to be able to cache with default port:
+  - https://redis.io/download/
 
 ## Run
 
+- Make sure Redis server is running
+- To run it -> gradle bootRun
+  - Once the app is start:
+    - port: 8777
+- To run the test ->
 
 ## Assumptions
 
