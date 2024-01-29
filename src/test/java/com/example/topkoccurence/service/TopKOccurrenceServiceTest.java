@@ -1,8 +1,10 @@
 package com.example.topkoccurence.service;
 
 import com.example.topkoccurence.dto.WordWrapper;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -11,14 +13,10 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class TopKOccurrenceServiceTest {
-
+    @InjectMocks
     private TopKOccurrenceService topKOccurrenceService;
-
-    @BeforeEach
-    void setUp() {
-        topKOccurrenceService = new TopKOccurrenceService();
-    }
 
     @Test
     void testCountTokenAndWrap() throws IOException {
