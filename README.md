@@ -35,7 +35,7 @@ After cloning the project don't forget to:
 - Some more custom exception can be thrown in case there's issue to read the file
 - The result returned could be in a custom object with it's ranking
 - The authentication is yet to be implemented
-- The cas if the input files doesn't fit the memory
+- The case if the input files doesn't fit the memory
 - Containerized the service make life easier to run and deploy it through a pipeline 
 
 ## Issues
