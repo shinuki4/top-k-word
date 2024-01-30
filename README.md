@@ -29,6 +29,8 @@ After cloning the project don't forget to:
     - port: 8777
 - To run the test use the IDE 
   - there's integration and unit test
+- Swagger documentation can be found here
+  - http://localhost:8777/swagger-ui/index.html
 
 
 ## Assumption

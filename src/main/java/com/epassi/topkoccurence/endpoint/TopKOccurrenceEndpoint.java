@@ -10,7 +10,7 @@ import org.springframework.web.service.annotation.PostExchange;
 import java.io.IOException;
 import java.util.Map;
 
-@HttpExchange("top-k-occurrence")
+@HttpExchange(value = "top-k-occurrence", contentType = "multipart/form-data")
 public interface TopKOccurrenceEndpoint {
 
     @PostExchange("{word-limit}")
