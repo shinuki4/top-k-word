@@ -14,22 +14,31 @@ Backend Requirements:
 ## Pre requisite
 
 After cloning the project don't forget to:
+- Make sure you have gradle installed
 - Check out the Framework requirements:
   - https://spring.io/projects/spring-boot
   - Used version is the 3.2.2 
-- App need Redis server to be able to cache with default port:
+- App needs Redis server to be able to cache with default port:
   - https://redis.io/download/
 
 ## Run
 
 - Make sure Redis server is running
-- To run it -> gradle bootRun
-  - Once the app is start:
+- To run it -> gradle bootRun or simply use IDE
+  - Once the app is started:
     - port: 8777
-- To run the test ->
+- To run the test use the IDE 
+  - there's integration and unit test
 
-## Assumptions
 
+## Assumption
+- Some more custom exception can be thrown in case there's issue to read the file
+- The result returned could be in a custom object with it's ranking
+- The authentication is yet to be implemented
+- The cas if the input files doesn't fit the memory
+- Containerized the service make life easier to run and deploy it through a pipeline 
 
 ## Issues
-
+- Had long time hesitated between using a Map or Tree implementation but after considering the both pros and cons I decided to go on map implementation.
+  - Map is most of the time more efficient and cost less space but if the input start to be really huge maybe it would be good to consider using tree.
+- Configuring redis on windows as I m used to unix system for work

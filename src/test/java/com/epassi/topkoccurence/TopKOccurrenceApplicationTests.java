@@ -1,4 +1,4 @@
-package com.example.topkoccurence;
+package com.epassi.topkoccurence;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.example.topkoccurence;
+package com.epassi.topkoccurence;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

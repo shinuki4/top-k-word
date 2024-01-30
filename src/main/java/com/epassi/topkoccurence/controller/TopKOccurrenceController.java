@@ -1,12 +1,13 @@
-package com.example.topkoccurence.controller;
+package com.epassi.topkoccurence.controller;
 
-import com.example.topkoccurence.dto.WordWrapper;
-import com.example.topkoccurence.endpoint.TopKOccurrenceEndpoint;
-import com.example.topkoccurence.service.RedisService;
-import com.example.topkoccurence.service.TopKOccurrenceService;
+import com.epassi.topkoccurence.dto.WordWrapper;
+import com.epassi.topkoccurence.endpoint.TopKOccurrenceEndpoint;
+import com.epassi.topkoccurence.service.RedisService;
+import com.epassi.topkoccurence.service.TopKOccurrenceService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,21 +28,23 @@ public class TopKOccurrenceController implements TopKOccurrenceEndpoint {
     }
 
     @Override
-    public Map<String, Double> generateWordOccurrence(Integer wordLimit, MultipartFile textFile) throws IOException {
+    public ResponseEntity<Map<String,Double>> generateWordOccurrence(Integer wordLimit, MultipartFile textFile) throws IOException {
         WordWrapper wordWrapper;
-        if (textFile == null) {
-            logger.info("file not found");
-            return Map.of();
+        if (textFile == null || textFile.isEmpty()) {
+            logger.info("File not found or empty");
+            return ResponseEntity.notFound().build();
         }
         String redisKey = DigestUtils.md5Hex(textFile.getInputStream());
         if (redisService.getFromRedis(redisKey) == null) {
+            logger.info("File ready to get parsed");
             wordWrapper = topKOccurrenceService.countTokenAndWrap(textFile.getInputStream());
             redisService.saveToRedis(redisKey, wordWrapper);
         } else {
             wordWrapper = (WordWrapper) redisService.getFromRedis(redisKey);
+            logger.info("File ready from cache: {}", wordWrapper);
         }
 
-        return topKOccurrenceService.calculateWordOccurrence(wordLimit, wordWrapper);
+        return  ResponseEntity.ok(topKOccurrenceService.calculateWordOccurrence(wordLimit, wordWrapper));
     }
 
 }

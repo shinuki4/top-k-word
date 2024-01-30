@@ -1,4 +1,4 @@
-package com.example.topkoccurence.config;
+package com.epassi.topkoccurence.config;
 
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;

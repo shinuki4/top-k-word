@@ -1,13 +1,13 @@
-package com.example.topkoccurence.controller;
+package com.epassi.topkoccurence.controller;
 
-import com.example.topkoccurence.dto.ErrorResponse;
+import com.epassi.topkoccurence.dto.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import static com.example.topkoccurence.dto.enumeration.TopKErrorCodes.UNEXPECTED_EXCEPTION;
+import static com.epassi.topkoccurence.dto.enumeration.TopKErrorCodes.UNEXPECTED_EXCEPTION;
 
 @RestControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {

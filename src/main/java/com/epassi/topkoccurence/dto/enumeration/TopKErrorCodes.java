@@ -1,4 +1,4 @@
-package com.example.topkoccurence.dto.enumeration;
+package com.epassi.topkoccurence.dto.enumeration;
 
 import lombok.Getter;
 

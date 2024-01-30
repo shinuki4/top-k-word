@@ -1,4 +1,4 @@
-package com.example.topkoccurence.service;
+package com.epassi.topkoccurence.service;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;

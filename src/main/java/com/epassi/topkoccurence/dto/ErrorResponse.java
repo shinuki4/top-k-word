@@ -1,4 +1,4 @@
-package com.example.topkoccurence.dto;
+package com.epassi.topkoccurence.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

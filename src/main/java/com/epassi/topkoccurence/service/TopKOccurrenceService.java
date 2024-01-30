@@ -1,6 +1,6 @@
-package com.example.topkoccurence.service;
+package com.epassi.topkoccurence.service;
 
-import com.example.topkoccurence.dto.WordWrapper;
+import com.epassi.topkoccurence.dto.WordWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -29,6 +29,8 @@ public class TopKOccurrenceService {
      * @throws IOException in case the stream can't be read
      */
     public WordWrapper countTokenAndWrap(InputStream stream) throws IOException {
+        logger.info("Start parsing file");
+
         Reader fileReader = new InputStreamReader(stream);
         Map<String, Double> tokenMap = new LinkedHashMap<>();
         int wordCount = 0;
@@ -41,10 +43,14 @@ public class TopKOccurrenceService {
             currentToken = streamTokenizer.nextToken();
             wordCount += 1;
         }
-        return WordWrapper.builder()
+        WordWrapper wrapper = WordWrapper.builder()
                 .wordCheck(tokenMap)
                 .wordCount(wordCount)
                 .build();
+
+        logger.info("File parsed: {}", wrapper.toString());
+
+        return wrapper;
     }
 
     /**

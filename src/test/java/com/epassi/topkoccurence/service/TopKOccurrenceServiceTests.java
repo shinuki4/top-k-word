@@ -1,6 +1,6 @@
-package com.example.topkoccurence.service;
+package com.epassi.topkoccurence.service;
 
-import com.example.topkoccurence.dto.WordWrapper;
+import com.epassi.topkoccurence.dto.WordWrapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
-class TopKOccurrenceServiceTest {
+class TopKOccurrenceServiceTests {
     @InjectMocks
     private TopKOccurrenceService topKOccurrenceService;
 
